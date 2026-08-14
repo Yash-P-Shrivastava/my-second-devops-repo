@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+
+  install:
+    commands:
+      - echo Installing dependencies
+      - pip install pytest
+
+  build:
+    commands:
+      - echo Running tests
+      - pytest test_app.py -v
+
+  post_build:
+    commands:
+      - echo Build Complete
+      - chmod +x scripts/start_app.sh
+
+artifacts:
+  files:
+    - '**/*'
